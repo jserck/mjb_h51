@@ -2213,7 +2213,7 @@ export default {
      margin-left: 0.38rem;
      font-size: 0.32rem;
      color: #212832;
-     line-height: 0.32rem;
+     /* line-height: 0.32rem; */
      overflow: hidden;
      text-overflow: ellipsis;
      white-space: nowrap;
