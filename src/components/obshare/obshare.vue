@@ -248,7 +248,7 @@
                     </section>
                </section>
           </article>
-          <div class="g-live-action" v-if="abShareData.buildingRealView">
+          <div class="g-live-action" v-if="Object.keys(abShareData.buildingRealView).length > 0">
                <p class="progress_title">楼盘实景</p>
                <ObLiveAction :buildingRealView="abShareData.buildingRealView"></ObLiveAction>
           </div>
@@ -515,21 +515,37 @@
                class="g-probleam margin-con"
                v-if="abShareData.propertyComment.commentList.length !=0"
           >
-               <p style="display: flex;justify-content: space-between" class="progress_title">
-                    <!-- <span>鹰眼问答（{{abShareData.hawkEyeFQA.totalCount}}）</span> -->
+               <div
+                    class="g-light-seek-tit displayFlex flexJustifybetween"
+                    style="padding-left: 0.3rem;padding-right: 0.3rem"
+               >
+                    <span>鹰眼问答（{{abShareData.hawkEyeFQA.totalCount}}）</span>
+                    <span class="displayFlex flexJustifybetween flexAlignItemsCenter">
+                         <i class="lookAll" @click="loadHandler('0','animated bounceIn')">查看全部</i>
+                         <i>
+                              <img
+                                   :src="this.$url.right_icon"
+                                   style="float:right;width:0.12rem;height:0.22rem"
+                              />
+                         </i>
+                    </span>
+               </div>
+               <!-- <p style="display: flex;justify-content: space-between" class="progress_title">
+                    <span>鹰眼问答（{{abShareData.hawkEyeFQA.totalCount}}）</span>
                     <span class="look-all" @click="loadHandler('0','animated bounceIn')">查看全部></span>
-               </p>
+               </p>-->
                <div class="g-probleam-main" @click="loadHandler('0','animated bounceIn')">
-                    <!-- <div
-                         v-show="false"
-                         class="g-li displayFlex flexJustifybetween"
-                         v-for="(item,index) in abShareData.hawkEyeFQA.fqaList.slice(0,2)"
-                         :key="index"
-                    >
-                         <div class="g-p">{{item.question}}</div>
-                         <div class="g-p-num">{{item.answerCount}}</div>
-                    </div>-->
-                    <div class="g-no-li">
+                    <div class="g-li-con" v-if="abShareData.hawkEyeFQA.fqaList.length > 0">
+                         <div
+                              :class="['g-li', 'displayFlex', 'flexJustifybetween',index>=1?'':'g-li-mar-bot']"
+                              v-for="(item,index) in abShareData.hawkEyeFQA.fqaList.slice(0,2)"
+                              :key="index"
+                         >
+                              <div class="g-p">{{item.question}}</div>
+                              <div class="g-p-num">{{item.answerCount}}个回答</div>
+                         </div>
+                    </div>
+                    <div class="g-no-li" v-else>
                          <div class="g-img">
                               <img src="/static/obshare/pic_240px_meiyouloupan_n@3x.png" alt />
                          </div>
@@ -893,7 +909,7 @@ export default {
           },
           get_http() {
                let this_ = this;
-               let buiding = "buiding/buidingSurver1_6_1";
+               let buiding = "buiding/buidingSurver1_6_3";
                let id = this.$route.params.id;
                let op1_H = "";
                let op2_H = "";
@@ -916,7 +932,7 @@ export default {
                this.$http(options)
                     .then(res => {
                          this_.abShareData = res.response.data;
-                         console.log(this_.abShareData);
+                         console.log(res.response.data);
                          // // let m = this_.abShareData.contribution.contributionWaterfallList;
                          // // console.log(m);
                          // //配置轮播图数据
@@ -2043,12 +2059,12 @@ export default {
 .m-building-rating {
      margin-bottom: 0.2rem;
      padding: 0 0.3rem 0 0.3rem;
-     height: 2.7rem;
+     /* height: 2.7rem; */
      background: #fff;
 }
 
 .m-building-rating .g-building-context {
-     margin-top: 0.2rem;
+     padding-bottom: 0.3rem;
 }
 
 .m-building-rating .g-building-context .g-building-sum {
@@ -2172,6 +2188,9 @@ export default {
      overflow: hidden;
      padding: 0 0.3rem;
 }
+.g-probleam .g-probleam-main .g-li-con {
+     padding: 0.1rem 0;
+}
 .g-probleam .g-probleam-main .g-no-li .g-img {
      margin: auto;
      width: 2.4rem;
@@ -2183,17 +2202,22 @@ export default {
      letter-spacing: 0;
      line-height: 0.28rem;
 }
+.g-li-mar-bot {
+     margin-bottom: 0.31rem;
+}
 .g-probleam .g-probleam-main .g-li {
      position: relative;
-     margin-bottom: 0.31rem;
 }
 .g-probleam .g-probleam-main .g-li .g-p {
      width: 5.45rem;
-     overflow: hidden;
+     white-space: nowrap;
      margin-left: 0.38rem;
      font-size: 0.32rem;
      color: #212832;
-     line-height: 0.28rem;
+     line-height: 0.32rem;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     white-space: nowrap;
 }
 .g-probleam .g-probleam-main .g-li .g-p-num {
      font-size: 0.24rem;
