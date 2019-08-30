@@ -513,7 +513,6 @@
           </div>
           <div
                class="g-probleam margin-con"
-               v-if="abShareData.propertyComment.commentList.length !=0"
           >
                <div
                     class="g-light-seek-tit displayFlex flexJustifybetween"
@@ -535,7 +534,7 @@
                     <span class="look-all" @click="loadHandler('0','animated bounceIn')">查看全部></span>
                </p>-->
                <div class="g-probleam-main" @click="loadHandler('0','animated bounceIn')">
-                    <div class="g-li-con" v-if="abShareData.hawkEyeFQA.fqaList.length > 0">
+                    <div class="g-li-con" v-if="abShareData.hawkEyeFQA.totalCount > 0">
                          <div
                               :class="['g-li', 'displayFlex', 'flexJustifybetween',index>=1?'':'g-li-mar-bot']"
                               v-for="(item,index) in abShareData.hawkEyeFQA.fqaList.slice(0,2)"
