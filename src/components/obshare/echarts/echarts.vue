@@ -105,7 +105,7 @@ export default {
                                    color: '#8B949E',
                                    interval: 0,
                               },
-                              splitNumber: 10,
+                              // splitNumber: 5,
                               data: this.xList
                          },
                          yAxis: [{
@@ -186,13 +186,13 @@ export default {
                                    show: false,
                                    xAxisIndex: [0],
                                    start: 0,
-                                   end: 50
+                                   end: 25
                               },
                               {
                                    type: 'inside',
                                    xAxisIndex: [0],
                                    start: 0,
-                                   end: 50
+                                   end: 25
                               }
                          ],
                          series: [{
@@ -223,7 +223,7 @@ export default {
                     },
                     media: [
                          {
-                              query: { maxWidth: 900, },
+                              query: { maxWidth: 630 },
                               option: {
                                    grid: {
                                         top: "7%",
@@ -231,6 +231,21 @@ export default {
                                         width: '70%',
                                         height: "70%"
                                    },
+                                   dataZoom: [
+                                        {
+                                             type: 'slider',
+                                             show: false,
+                                             xAxisIndex: [0],
+                                             start: 0,
+                                             end: 15
+                                        },
+                                        {
+                                             type: 'inside',
+                                             xAxisIndex: [0],
+                                             start: 0,
+                                             end: 15
+                                        }
+                                   ],
                                    series: [{
                                         name: '本楼盘房价',
                                         type: 'line',
@@ -269,7 +284,7 @@ export default {
 
 <style scoped>
 .echarts {
-      height: 100%;
-      width: 100%;
+     height: 100%;
+     width: 100%;
 }
 </style>

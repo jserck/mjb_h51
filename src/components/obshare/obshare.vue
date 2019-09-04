@@ -511,14 +511,12 @@
                     </div>
                </div>
           </div>
-          <div
-               class="g-probleam margin-con"
-          >
+          <div class="g-probleam margin-con">
                <div
                     class="g-light-seek-tit displayFlex flexJustifybetween"
                     style="padding-left: 0.3rem;padding-right: 0.3rem"
                >
-                    <span>鹰眼问答（{{abShareData.hawkEyeFQA.totalCount}}）</span>
+                    <span>大家都在问（{{abShareData.hawkEyeFQA.totalCount}}）</span>
                     <span class="displayFlex flexJustifybetween flexAlignItemsCenter">
                          <i class="lookAll" @click="loadHandler('0','animated bounceIn')">查看全部</i>
                          <i>
@@ -530,13 +528,13 @@
                     </span>
                </div>
                <!-- <p style="display: flex;justify-content: space-between" class="progress_title">
-                    <span>鹰眼问答（{{abShareData.hawkEyeFQA.totalCount}}）</span>
+                    <span>大家都在问（{{abShareData.hawkEyeFQA.totalCount}}）</span>
                     <span class="look-all" @click="loadHandler('0','animated bounceIn')">查看全部></span>
                </p>-->
                <div class="g-probleam-main" @click="loadHandler('0','animated bounceIn')">
                     <div class="g-li-con" v-if="abShareData.hawkEyeFQA.totalCount > 0">
                          <div
-                              :class="['g-li', 'displayFlex', 'flexJustifybetween',index>=1?'':'g-li-mar-bot']"
+                              :class="['g-li', 'displayFlex', 'flexJustifybetween','flexAlignItemsCenter',index>=1?'':'g-li-mar-bot']"
                               v-for="(item,index) in abShareData.hawkEyeFQA.fqaList.slice(0,2)"
                               :key="index"
                          >
