@@ -33,7 +33,8 @@ export default {
                this.$router.push({
                     path: "/houseQueryOver",
                     query: {
-                         buildingName: this.buildingName
+                         buildingName: this.buildingName,
+                         cid:this.$route.query.cid
                     }
                });
           }

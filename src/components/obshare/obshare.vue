@@ -130,7 +130,7 @@
                     </div>
                </div>
           </div>
-          <Banner :src="abShareData.adData.adImageUrl" :href="abShareData.adData.adWebUrl" />
+          <!-- <Banner :src="abShareData.adData.adImageUrl" :href="abShareData.adData.adWebUrl" /> -->
           <!--楼盘评分-->
           <div
                id="anchor-1"

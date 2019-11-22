@@ -69,7 +69,10 @@ export default {
      methods: {
           get_data(name) {
                let url = "/buiding/getPropertyQualificatByName";
-               let body = { buildingName: name };
+               let body = {
+                    buildingName: name,
+                    cid: this.$route.query.cid
+               };
                let options = {
                     urls: url,
                     methods: "post",
